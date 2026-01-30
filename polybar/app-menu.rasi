@@ -1,0 +1,76 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: " ";
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 10";
+}
+
+@theme "/dev/null"
+
+* {
+    /* Nord Color Palette */
+    bg: #2e3440;
+    bg-alt: #3b4252;
+    fg: #d8dee9;
+    primary: #88c0d0;
+    
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    /* Posisi di pojok kiri atas sesuai letak modul launcher kamu */
+    location: north west;
+    anchor: north west;
+    x-offset: 10px;
+    y-offset: 40px; /* Jarak dari bar atas */
+    
+    width: 250px;
+    background-color: @bg;
+    
+    /* Penambahan Border */
+    border: 2px;             /* Ketebalan border ditingkatkan */
+    border-color: @primary;   /* Menggunakan warna biru Nord */
+    border-radius: 8px;      /* Sudut yang lebih membulat */
+}
+
+mainbox {
+    padding: 10px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    margin: 0 0 10px 0;
+    padding: 8px;
+    border-radius: 4px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @primary;
+    margin: 0 10px 0 0;
+}
+
+listview {
+    lines: 10;
+    columns: 1;
+    fixed-height: true;
+    scrollbar: false;
+}
+
+element {
+    padding: 5px;
+    border-radius: 4px;
+}
+
+element selected {
+    background-color: @primary;
+    text-color: @bg;
+}
+
+element-icon {
+    size: 20px;
+    padding: 0 10px 0 0;
+}

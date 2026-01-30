@@ -1,0 +1,67 @@
+configuration {
+    show-icons: false;
+}
+
+@theme "/dev/null"
+
+* {
+    /* Nord Colors */
+    bg: #2e3440;
+    bg-alt: #3b4252;
+    fg: #d8dee9;
+    primary: #88c0d0;
+    urgent: #bf616a;
+    
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    width: 500px; /* Dibuat lebih lebar untuk menampung 4 tombol ke samping */
+    background-color: @bg;
+    border: 2px;
+    border-color: @primary;
+    border-radius: 12px;
+}
+
+mainbox {
+    padding: 25px;
+    children: [ "listview" ];
+}
+
+listview {
+    enabled: true;
+    columns: 4;     /* Menampilkan 4 tombol secara horizontal */
+    lines: 1;
+    spacing: 15px;
+    layout: vertical;
+    fixed-columns: true;
+    fixed-height: true;
+}
+
+element {
+    padding: 20px 0px;
+    border-radius: 8px;
+    background-color: @bg-alt;
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font 20"; /* Ikon diperbesar agar menonjol */
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: inherit;
+}
+
+element selected {
+    background-color: @primary;
+    text-color: @bg;
+}
+
+/* Warna merah khusus untuk tombol Shutdown saat dipilih */
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @fg;
+}

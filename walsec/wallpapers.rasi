@@ -1,0 +1,94 @@
+configuration {
+    show-icons:      true;
+    icon-theme:      "Papirus-Dark";
+    hover-select:    true;
+}
+
+* {
+    /* Palet Warna Nord */
+    bg:      #2e3440; /* Nord 0: Deep Grayish Blue */
+    fg:      #d8dee9; /* Nord 4: Snow Storm White */
+    accent:  #88c0d0; /* Nord 8: Frost Blue */
+    border:  #4c566a; /* Nord 3: Polar Night Gray */
+    select:  #3b4252; /* Nord 1: Lighter Grayish Blue */
+    
+    background-color:  transparent;
+    text-color:        @fg;
+    font:              "JetBrainsMono Nerd Font 9";
+}
+
+window {
+    width:            1000px;
+    height:           350px;
+    background-color: @bg;
+    /* Border Utama Window */
+    border:           3px; 
+    border-color:     @accent; 
+    border-radius:    12px;
+}
+
+mainbox {
+    padding:          30px;
+    children:         [ inputbar, listview ];
+}
+
+inputbar {
+    margin:           0px 0px 25px 0px;
+    spacing:          10px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    padding:          8px 15px;
+    background-color: @accent;
+    text-color:       @bg;
+    border-radius:    6px;
+    font:             "JetBrainsMono Nerd Font Bold 10";
+}
+
+entry {
+    padding:          8px;
+    placeholder:      "Pilih Suasana Baru...";
+    placeholder-color: @border;
+    text-color:       @fg;
+}
+
+listview {
+    columns:          4;
+    lines:            1;
+    spacing:          25px;
+    cycle:            false;
+    dynamic:          true;
+    layout:           vertical;
+    fixed-columns:    true;
+}
+
+element {
+    orientation:      vertical;
+    padding:          15px;
+    border-radius:    10px;
+    /* Border halus pada setiap item saat tidak dipilih */
+    border:           1px;
+    border-color:     @border;
+}
+
+element selected {
+    background-color: @select;
+    /* Border Nordic Tebal saat dipilih */
+    border:           2px;
+    border-color:     @accent;
+    text-color:       @accent;
+}
+
+element-icon {
+    size:             150px;
+    horizontal-align: 0.5;
+    cursor:           pointer;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    margin:           10px 0px 0px 0px;
+    font:             "JetBrainsMono Nerd Font Bold 8";
+    cursor:           pointer;
+}
